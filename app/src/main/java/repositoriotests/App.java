@@ -4,21 +4,34 @@
 package repositoriotests;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
+
+    public void testRegistrarUsuario() {
+        GestorUsuarios gestorUsuarios = new GestorUsuarios();
+        String nombreUsuario = "usuario1";
+        String correoElectronico = "usuario1@example.com";
+
+        assertTrue(gestorUsuarios.registrarUsuario(nombreUsuario, correoElectronico));
     }
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+    private void assertTrue(Object registrarUsuario) {
+        throw new UnsupportedOperationException("Unimplemented method 'assertTrue'");
     }
-    public int sumar (int num1, int num2) {
-        int suma = num1 + num2;
-        System.out.println(suma);
-        return suma;
-    }
-    public int restar (int num1, int num2) {
-        int resta = num1 - num2;
-        System.out.println(resta);
-        return resta;
+
+    public void testEliminarUsuario() {
+        GestorUsuarios gestorUsuarios = new GestorUsuarios();
+        String nombreUsuario = "usuario2";
+        String correoElectronico = "usuario2@example.com";
+
+        gestorUsuarios.registrarUsuario(nombreUsuario, correoElectronico);
+        assertTrue(gestorUsuarios.eliminarUsuario(nombreUsuario));
     }
 }
+
+/*
+Proposta 1
+
+Gestió d'Usuaris:
+registrar_usuari(nom_usuari, correu_electronic): Registra un nou usuari.
+eliminar_usuari(nom_usuari): Elimina un usuari existent.
+
+ */

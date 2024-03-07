@@ -4,19 +4,23 @@
 package repositoriotests;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    @Test void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
-    }
-    @Test void appSumaCorrecta() {
-        App classUnderTest = new App();
-        assertEquals(5, classUnderTest.sumar(1,3));
-    }
-    @Test void appRestaCorrecta(){
-        App classUnderTest = new App();
-        assertEquals(1, classUnderTest.restar(1,2));
+
+    @Test
+    public static void main(String[] args) {
+        GestorUsuarios gestorUsuarios = new GestorUsuarios();
+
+        String nombreUsuario = "usuario1";
+        String correoElectronico = "usuario1@example.com";
+        gestorUsuarios.registrarUsuario(nombreUsuario, correoElectronico);
+        System.out.println("Usuario registrado: " + nombreUsuario);
+
+        String nombreUsuarioEliminar = "usuario1";
+        if (gestorUsuarios.eliminarUsuario(nombreUsuarioEliminar)) {
+            System.out.println("Usuario eliminado: " + nombreUsuarioEliminar);
+        } else {
+            System.out.println("El usuario no existe: " + nombreUsuarioEliminar);
+        }
     }
 }
